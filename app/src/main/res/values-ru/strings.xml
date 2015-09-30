@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Какая разметка?</string>
+    <string name="action_about">О приложении</string>
+    <string name="loading">Загрузка...</string>
+    <string name="version">Версия %1$s</string>
+</resources>
