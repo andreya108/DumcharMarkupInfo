@@ -2,9 +2,6 @@ package ru.andreya108.dumcharmarkupinfo;
 
 import android.app.Activity;
 import android.app.DialogFragment;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,7 +11,8 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 
     DialogFragment aboutDialog;
-    DumcharUtil dumcharUtil = new DumcharUtil();
+    DialogFragment errorDialog;
+    DumcharUtil dumcharUtil;
     TextView detectedMarkup;
     TextView partitionSizes;
     TextView dumcharDump;
@@ -24,6 +22,15 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         aboutDialog = new AboutDialog();
+        errorDialog = new ErrorDialog();
+
+        dumcharUtil = new DumcharUtil(this);
+        if ( dumcharUtil.readDumchar() == false)
+        {
+            errorDialog.show(getFragmentManager(), "errorDialog");
+            finish();
+            return;
+        }
 
         detectedMarkup = (TextView) findViewById(R.id.detectedMarkup);
         detectedMarkup.setText(dumcharUtil.getMarkup() + " " + dumcharUtil.getEmmcSizeGb() + "Gb");

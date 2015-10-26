@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="part_info">
+        <item>android</item>
+        <item>usrdata</item>
+        <item>fat</item>
+    </string-array>
+</resources>

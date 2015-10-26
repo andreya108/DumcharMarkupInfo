@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="stock_bootimg_size">6291456</integer>
+    <integer name="plus_bootimg_size">16777216</integer>
+</resources>

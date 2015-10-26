@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">Какая разметка?</string>
     <string name="action_about">О приложении</string>
-    <string name="loading">Загрузка...</string>
     <string name="version">Версия %1$s</string>
+    <string name="error_title">Ошибка!</string>
+    <string name="error_info">К сожалению, вероятно ваше устройство не поддерживается. Это приложение было создано для Lenovo P780 (MT6589 SOC)</string>
 </resources>
