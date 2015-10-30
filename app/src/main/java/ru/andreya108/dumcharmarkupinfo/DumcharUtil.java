@@ -2,7 +2,6 @@ package ru.andreya108.dumcharmarkupinfo;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -10,6 +9,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -29,7 +29,7 @@ public class DumcharUtil
 
     private final Resources resources;
     private String markup = null;
-    private String partSizes = null;
+    private ArrayList<PartitionSizeInfo> partSizes;
     private long emmcSizeGb = 0;
     private Context context;
 
@@ -62,6 +62,7 @@ public class DumcharUtil
     {
         this.context = context;
         this.resources = context.getResources();
+        partSizes = new ArrayList<>();
     }
 
     public boolean readDumchar() {
@@ -93,7 +94,7 @@ public class DumcharUtil
 
             markup = detectMarkup();
 
-            partSizes = renderPartInfo();
+            renderPartInfo();
 
             emmcSizeGb = detectEmmcSize(sumSize);
 
@@ -137,24 +138,22 @@ public class DumcharUtil
        return sb.toString();
     }
 
-    private String renderPartInfo() {
+    private void renderPartInfo() {
+
+        partSizes.clear();
 
         String[] parts = resources.getStringArray(R.array.part_info);
-        StringBuilder sb = new StringBuilder();
 
         for (int i=0; i<parts.length; i++)
         {
-
             DumcharEntry part = entries.get(parts[i]);
             if (part != null) {
-                if (i>0) sb.append("\n");
 
-                int id = resources.getIdentifier("label_"+part.id, "string", context.getPackageName());
-                String label = resources.getString(id);
-                sb.append(formatPartInfoStr(label, part.size));
+                int id = resources.getIdentifier("label_" + part.id, "string", context.getPackageName());
+
+                partSizes.add(new PartitionSizeInfo(resources.getString(id), part.size));
             }
         }
-        return sb.toString();
     }
 
     private String formatPartInfoStr(String id, long size)
@@ -178,7 +177,7 @@ public class DumcharUtil
         return entry == null ? 0 : entry.size;
     }
 
-    public String getPartSizes() {
+    public ArrayList<PartitionSizeInfo> getPartSizes() {
         return partSizes;
     }
 

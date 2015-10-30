@@ -16,4 +16,13 @@
     <string name="markup_row" translatable="false">ROW</string>
     <string name="markup_plus" translatable="false">+</string>
     <string name="markup_unknown" translatable="false">\?</string>
+    <string name="action_mmc_info">MMC Info</string>
+    <string name="unknown">unknown</string>
+    <string name="chipId">MMC Chip ID:</string>
+    <string name="vendor">Vendor:</string>
+    <string name="parnNumber">Part Number:</string>
+    <string name="serial">Serial:</string>
+    <string name="date">Date:</string>
+    <string name="name">Name:</string>
+    <string name="wrong_markup">Chip size and markup calculated size does not match! Possibly wrong markup flashed!</string>
 </resources>

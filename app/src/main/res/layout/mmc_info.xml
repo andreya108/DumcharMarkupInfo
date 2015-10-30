@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/unknown"
+            android:id="@+id/mmcGb"
+            android:layout_gravity="center_horizontal"
+            android:textSize="40dp"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView" >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    style="@style/mmcInfoField"
+                    android:text="@string/name" />
+
+                <TextView
+                    style="@style/mmcInfoValue"
+                    android:id="@+id/mmcName"
+                    android:text="@string/unknown" />
+
+                <TextView
+                    style="@style/mmcInfoField"
+                    android:text="@string/date" />
+
+                <TextView
+                    style="@style/mmcInfoValue"
+                    android:id="@+id/mmcDate"
+                    android:text="@string/unknown" />
+
+                <TextView
+                    android:text="@string/vendor"
+                    style="@style/mmcInfoField" />
+
+                <TextView
+                    android:id="@+id/vendor"
+                    android:text="@string/unknown"
+                    style="@style/mmcInfoValue" />
+
+                <TextView
+                    android:text="@string/parnNumber"
+                    style="@style/mmcInfoField" />
+
+                <TextView
+                    android:id="@+id/partNumber"
+                    android:text="@string/unknown"
+                    style="@style/mmcInfoValue" />
+
+                <TextView
+                    android:text="@string/chipId"
+                    style="@style/mmcInfoField" />
+
+                <TextView
+                    android:text="@string/unknown"
+                    android:id="@+id/mmcCid"
+                    style="@style/mmcInfoValue" />
+
+                <TextView
+                    style="@style/mmcInfoField"
+                    android:text="@string/serial" />
+
+                <TextView
+                    style="@style/mmcInfoValue"
+                    android:id="@+id/mmcSerial"
+                    android:text="@string/unknown" />
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</LinearLayout>
