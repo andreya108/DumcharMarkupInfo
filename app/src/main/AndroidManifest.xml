@@ -16,14 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MmcInfoActivity"
-            android:label="@string/action_mmc_info"
-            android:parentActivityName="ru.andreya108.dumcharmarkupinfo.MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="ru.andreya108.dumcharmarkupinfo.MainActivity" />
-        </activity>
     </application>
 
 </manifest>

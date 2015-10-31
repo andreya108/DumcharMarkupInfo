@@ -1,5 +1,7 @@
 package ru.andreya108.dumcharmarkupinfo;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -22,24 +24,9 @@ public class MmcUtil {
     public static final String MMC_DATE = MMC0_DIR + "/date";
     public static final String MMC_SERIAL = MMC0_DIR + "/serial";
 
-    public class MmcChip {
-        public final String cid;
-        public final String vendor;
-        public final String part;
-        public final int sizeGb;
-        public final int totalSizeMb;
-        public final int userSizeKb;
-
-        public MmcChip(String cid, String vendor, String part, int sizeGb, int totalSizeMb, int userSizeKb) {
-            this.cid = cid;
-            this.vendor = vendor;
-            this.part = part;
-            this.sizeGb = sizeGb;
-            this.totalSizeMb = totalSizeMb;
-            this.userSizeKb = userSizeKb;
-        }
-    }
-
+    private final Resources resources;
+    private Context context;
+/*
     public MmcChip[] chips = {
             new MmcChip("90014A483847326404", "Hynix",    "H9TP65A8JDACPR_KGM",        8,  7468,  7634944),
             new MmcChip("90014A2058494E5948", "Hynix",    "H9TP32A8JDMCPR_KGM",        4,  3702,  3784704),
@@ -57,8 +44,8 @@ public class MmcUtil {
             new MmcChip("1501004B4A5330304D", "Samsung",  "KMKJS000VM_B309",           4,  3728,  3815296),
             new MmcChip("150100493855303041", "Samsung",  "KMI8U000MM_B605_MMD2",     16, 14914, 15267840)
     };
-
-    Map<String, MmcChip> chipdb = new HashMap<>();
+*/
+    Map<String, MmcChip> chipdb = new HashMap<String, MmcChip>();
     String  cid = null;
     MmcChip mmc0 = null;
 
@@ -70,11 +57,17 @@ public class MmcUtil {
         return mmc0;
     }
 
-    public MmcUtil()
+    public MmcUtil(Resources resources)
     {
-        for (int i=0; i<chips.length; i++)
+        this.resources = resources;
+
+        String[] mmc_chips = resources.getStringArray(R.array.mmc_chips);
+
+        for (int i=0; i<mmc_chips.length; i++)
         {
-            chipdb.put(chips[i].cid, chips[i]);
+            MmcChip chip = MmcChip.newInstanceFromString(mmc_chips[i]);
+            if (chip != null)
+                chipdb.put(chip.cid, chip);
         }
 
         cid = getMmcCid();

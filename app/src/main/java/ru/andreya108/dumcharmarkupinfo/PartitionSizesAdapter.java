@@ -11,12 +11,12 @@ import java.util.List;
 
 public class PartitionSizesAdapter extends BaseAdapter {
     List<PartitionSizeInfo> items;
-    Activity context;
+    LayoutInflater inflater;
 
-    public PartitionSizesAdapter(Activity context, List<PartitionSizeInfo> items)
+    public PartitionSizesAdapter(LayoutInflater inflater, List<PartitionSizeInfo> items)
     {
         super();
-        this.context = context;
+        this.inflater = inflater;
         this.items = items;
     }
 
@@ -39,13 +39,14 @@ public class PartitionSizesAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         PartitionSizeInfo item = (PartitionSizeInfo) getItem(position);
 
-        LayoutInflater inflater=context.getLayoutInflater();
         View rowView=inflater.inflate(R.layout.part_size_list_item, null, true);
 
         TextView left = (TextView) rowView.findViewById(R.id.left);
         left.setText(item.name);
+
         TextView right = (TextView) rowView.findViewById(R.id.right);
-        right.setText(""+item.size/DumcharUtil.MB+" Mb");
+        right.setText( String.format(inflater.getContext().getString(R.string.size_mb), item.size / DumcharUtil.MB) );
+
         return rowView;
     }
 }

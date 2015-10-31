@@ -1,19 +1,19 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 19
+    buildToolsVersion "19.1.0"
 
     defaultConfig {
         applicationId "ru.andreya108.dumcharmarkupinfo"
         minSdkVersion 17
         targetSdkVersion 19
         versionCode 1
-        versionName "1.0b6"
+        versionName "1.0"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -33,5 +33,6 @@ android {
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-//    compile 'com.android.support:appcompat-v7:22.2.0'
+    compile 'com.android.support:support-v4:19.1.0'
+    compile 'com.android.support:support-v13:19.1.0'
 }

@@ -5,6 +5,7 @@
     <string name="version">Версия %1$s</string>
     <string name="error_title">Ошибка!</string>
     <string name="error_info">К сожалению, вероятно ваше устройство не поддерживается. Это приложение было создано для Lenovo P780 (MT6589 SOC)</string>
+    <string name="app_info">Это приложение было создано для Lenovo P780 (MT6589 SOC), чтобы уменьшить беспорядок с огромным количеством используемых разметок памяти.</string>
     <string name="action_mmc_info">Информация о MMC</string>
     <string name="unknown">неизвестно</string>
     <string name="chipId">Идентификатор чипа:</string>
@@ -14,4 +15,10 @@
     <string name="date">Дата:</string>
     <string name="name">Название:</string>
     <string name="wrong_markup">Размер памяти, вычисленный по разметке не совпадает с реальным размером! Возможно, прошита некорректная разметка!</string>
+    <string name="markupTab">Разметка</string>
+    <string name="mmcTab">EMMC</string>
+    <string name="aboutTab">О приложении</string>
+    <string name="markup_info">%1$s %2$dГб</string>
+    <string name="total_size">%1$d Гб (точнее %2$d Мб)</string>
+    <string name="size_mb">%1$d Мб</string>
 </resources>

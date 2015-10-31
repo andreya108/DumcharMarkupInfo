@@ -24,8 +24,6 @@ public class DumcharUtil
     public static final long KB = 1024;
     public static final long MB = KB*1024;
     public static final long GB = MB*1024;
-    public static final long STOCK_BOOTIMG_SIZE = 6*MB;
-    public static final long PLUS_BOOTIMG_SIZE = 16*MB;
 
     private final Resources resources;
     private String markup = null;
@@ -56,13 +54,13 @@ public class DumcharUtil
     }
 
     String dumcharInfo = null;
-    Map<String, DumcharEntry> entries = new HashMap<>();
+    Map<String, DumcharEntry> entries = new HashMap<String, DumcharEntry>();
 
     public DumcharUtil(Context context)
     {
         this.context = context;
         this.resources = context.getResources();
-        partSizes = new ArrayList<>();
+        partSizes = new ArrayList<PartitionSizeInfo>();
     }
 
     public boolean readDumchar() {
@@ -156,11 +154,6 @@ public class DumcharUtil
         }
     }
 
-    private String formatPartInfoStr(String id, long size)
-    {
-        return String.format("%-14s  %10d Mb", id, size/MB);
-    }
-
     public String getDumcharInfo()
     {
         return dumcharInfo;
@@ -169,12 +162,6 @@ public class DumcharUtil
     public String getMarkup()
     {
         return markup;
-    }
-
-    public long getPartitionSize(String id)
-    {
-        DumcharEntry entry = entries.get(id);
-        return entry == null ? 0 : entry.size;
     }
 
     public ArrayList<PartitionSizeInfo> getPartSizes() {

@@ -1,45 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
-    android:orientation="vertical">
-
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/detectedMarkup"
-        android:paddingBottom="16dp"
-        android:gravity="center"
-        android:typeface="monospace" />
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="20dp"
-        android:divider="@color/transparent" />
-
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/scrollView2" >
-
-        <HorizontalScrollView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/horizontalScrollView">
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:id="@+id/dumcharDump"
-                android:textColor="#464646"
-                android:fontFamily="monospace" />
-        </HorizontalScrollView>
-    </ScrollView>
-
-</LinearLayout>
+<android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:id="@+id/container"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    tools:context="ru.andreya108.dumcharmarkupinfo.MainActivity" />

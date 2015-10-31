@@ -7,6 +7,7 @@
     <string name="action_about">About</string>
     <string name="error_title">Error!</string>
     <string name="error_info">Unfortunately, it seems that your device is not supported. This application was designed for Lenovo P780 (MT6589 SOC)</string>
+    <string name="app_info">This application was designed for Lenovo P780 (MT6589 SOC), to make some order in available memory makrups mess.</string>
 
     <string name="label_android" translatable="false">/system</string>
     <string name="label_usrdata" translatable="false">/data</string>
@@ -25,4 +26,10 @@
     <string name="date">Date:</string>
     <string name="name">Name:</string>
     <string name="wrong_markup">Chip size and markup calculated size does not match! Possibly wrong markup flashed!</string>
+    <string name="markupTab">Markup</string>
+    <string name="mmcTab">EMMC</string>
+    <string name="aboutTab">About</string>
+    <string name="markup_info">%1$s %2$dGb</string>
+    <string name="total_size">%1$d Gb (strictly %2$d Mb)</string>
+    <string name="size_mb">%1$d Mb</string>
 </resources>
